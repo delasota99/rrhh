@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RRHH Fácil — Asesoría laboral cercana</title>
+<meta name="description" content="Asesoría laboral para particulares y empresas: búsqueda de empleo, dudas laborales y trámites, explicados sin tecnicismos.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --dark:        #2e2e2e;
+    --olive-dark:  #4a4732;
+    --olive-light: #8a8666;
+    --cream:       #d4cfc0;
+    --terracotta:  #e8a87c;
+    --yellow:      #ffde59;
+    --white:       #faf8f3;
+  }
+
+  *{ margin:0; padding:0; box-sizing:border-box; }
+
+  html{ scroll-behavior:smooth; }
+
+  body{
+    background:var(--dark);
+    color:var(--white);
+    font-family:'Atkinson Hyperlegible', sans-serif;
+    line-height:1.55;
+  }
+
+  h1,h2,h3,.brand,.btn,.tag,label{ font-family:'Poppins', sans-serif; }
+
+  a{ color:inherit; }
+
+  .wrap{ max-width:880px; margin:0 auto; padding:0 24px; }
+
+  /* ---- NAV ---- */
+  nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:22px 0;
+  }
+  .brand{ font-weight:800; font-size:19px; letter-spacing:-0.5px; }
+  .brand span{ color:var(--yellow); }
+  .nav-links{ display:flex; gap:22px; font-size:14px; font-weight:600; }
+  .nav-links a{ text-decoration:none; opacity:0.85; }
+  .nav-links a:hover{ opacity:1; color:var(--yellow); }
+
+  /* ---- HERO ---- */
+  .hero{ padding:56px 0 46px 0; }
+  .eyebrow{
+    font-weight:700; font-size:13px; letter-spacing:2.5px; text-transform:uppercase;
+    color:var(--terracotta); margin-bottom:14px;
+  }
+  h1{ font-size:44px; font-weight:800; line-height:1.08; letter-spacing:-1px; max-width:640px; }
+  h1 .accent{ color:var(--yellow); }
+  .hero p{ margin-top:18px; font-size:17px; color:var(--cream); max-width:560px; }
+  .hero-ctas{ display:flex; gap:14px; margin-top:30px; flex-wrap:wrap; }
+
+  .btn{
+    display:inline-block;
+    font-weight:700; font-size:15px;
+    padding:14px 26px;
+    border-radius:10px;
+    text-decoration:none;
+    cursor:pointer;
+    border:none;
+  }
+  .btn-primary{ background:var(--yellow); color:var(--dark); }
+  .btn-primary:hover{ filter:brightness(0.95); }
+  .btn-outline{ background:transparent; color:var(--white); border:2px solid var(--olive-light); }
+  .btn-outline:hover{ border-color:var(--yellow); }
+
+  /* ---- FREE BANNER ---- */
+  .free-banner{
+    background:var(--yellow); color:var(--dark);
+    padding:18px 0;
+  }
+  .free-banner .wrap{ display:flex; align-items:center; gap:14px; flex-wrap:wrap; }
+  .tag{
+    font-weight:800; font-size:13px; text-transform:uppercase; letter-spacing:1px;
+    background:var(--dark); color:var(--yellow);
+    padding:6px 14px; border-radius:20px; flex-shrink:0;
+  }
+  .free-banner p{ font-size:14.5px; font-weight:600; margin:0; }
+
+  /* ---- SERVICIOS ---- */
+  .servicios{ padding:64px 0; }
+  .section-title{ font-size:30px; font-weight:800; letter-spacing:-0.5px; margin-bottom:8px; }
+  .section-sub{ color:var(--cream); font-size:15.5px; margin-bottom:36px; max-width:560px; }
+
+  .rama{
+    border-radius:16px;
+    padding:26px 28px;
+    margin-bottom:16px;
+    display:flex;
+    gap:20px;
+  }
+  .rama.c1{ background:var(--olive-dark); }
+  .rama.c2{ background:var(--olive-light); }
+  .rama.c3{ background:var(--cream); color:var(--dark); }
+
+  .num{
+    font-weight:800; font-size:16px;
+    width:40px; height:40px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+  }
+  .rama.c1 .num{ background:var(--yellow); color:var(--dark); }
+  .rama.c2 .num{ background:var(--terracotta); color:var(--dark); }
+  .rama.c3 .num{ background:var(--dark); color:var(--yellow); }
+
+  .rama-title{ font-weight:700; font-size:20px; margin-bottom:10px; }
+  .item{
+    display:flex; justify-content:space-between; gap:16px;
+    font-size:15px; padding:5px 0;
+    border-bottom:1px dashed rgba(255,255,255,0.22);
+  }
+  .rama.c3 .item{ border-bottom:1px dashed rgba(0,0,0,0.18); }
+  .item:last-child{ border-bottom:none; }
+  .price{ font-weight:700; white-space:nowrap; }
+  .rama.c1 .price{ color:var(--yellow); }
+  .rama.c2 .price{ color:var(--dark); }
+  .rama.c3 .price{ color:var(--terracotta); }
+  .price small{ opacity:0.65; font-weight:400; }
+
+  .legend{ font-size:13px; color:var(--cream); margin-top:6px; }
+  .legend b{ color:var(--yellow); }
+
+  /* ---- CONTACTO / FORM ---- */
+  .contacto{ padding:64px 0; background:var(--olive-dark); border-radius:20px; margin-bottom:64px; }
+  .form-box{ padding:0 24px; }
+  form{ display:flex; flex-direction:column; gap:16px; max-width:560px; }
+  label{ font-size:13.5px; font-weight:700; margin-bottom:6px; display:block; color:var(--cream); }
+  input, select, textarea{
+    width:100%;
+    background:var(--dark);
+    border:1.5px solid var(--olive-light);
+    color:var(--white);
+    border-radius:10px;
+    padding:12px 14px;
+    font-family:'Atkinson Hyperlegible', sans-serif;
+    font-size:15px;
+  }
+  input:focus, select:focus, textarea:focus{ outline:none; border-color:var(--yellow); }
+  textarea{ min-height:100px; resize:vertical; }
+  .form-note{ font-size:12.5px; color:var(--cream); opacity:0.85; }
+
+  /* ---- FOOTER ---- */
+  footer{ padding:36px 0 50px 0; border-top:1px solid var(--olive-dark); }
+  .contact-row{
+    display:flex; gap:26px; flex-wrap:wrap;
+    font-weight:600; font-size:14.5px; margin-bottom:16px;
+  }
+  .contact-row div{ display:flex; align-items:center; gap:8px; }
+  .contact-row .ic{ color:var(--yellow); font-weight:800; }
+  .disclaimer{ font-size:11px; color:#9b9689; max-width:720px; line-height:1.5; }
+
+  @media (max-width:600px){
+    h1{ font-size:32px; }
+    .section-title{ font-size:24px; }
+    .rama{ flex-direction:column; }
+    .nav-links{ display:none; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="wrap">
+    <nav>
+      <div class="brand">RRHH <span>FÁCIL</span></div>
+      <div class="nav-links">
+        <a href="#servicios">Servicios</a>
+        <a href="#contacto">Contacto</a>
+        <a href="https://www.linkedin.com/in/fernando-de-la-sota-escriche-47824a161" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.instagram.com/fernando_rrhh/" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </nav>
+  </div>
+
+  <div class="wrap">
+    <section class="hero">
+      <div class="eyebrow">Asesoría laboral cercana</div>
+      <h1>Tus derechos laborales, <span class="accent">explicados sin líos</span>.</h1>
+      <p>Asesoría para particulares y empresas: búsqueda de empleo, dudas sobre tu nómina o contrato, y trámites laborales resueltos paso a paso, sin tecnicismos.</p>
+      <div class="hero-ctas">
+        <a href="#contacto" class="btn btn-primary">Cuéntame tu caso →</a>
+        <a href="#servicios" class="btn btn-outline">Ver servicios</a>
+      </div>
+    </section>
+  </div>
+
+  <div class="free-banner">
+    <div class="wrap">
+      <div class="tag">Gratis</div>
+      <p>Primera consulta sin coste ni compromiso: me cuentas tu situación y te digo cómo puedo ayudarte. La resolución del caso ya entra dentro de las tarifas de abajo.</p>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <section class="servicios" id="servicios">
+      <div class="section-title">Cómo puedo ayudarte</div>
+      <div class="section-sub">Tres formas de ayudarte: encontrar trabajo, entender tus derechos y saber qué hacer cuando algo no va bien.</div>
+
+      <div class="rama c1">
+        <div class="num">01</div>
+        <div>
+          <div class="rama-title">Búsqueda de empleo</div>
+          <div class="item"><span>Revisión y mejora de CV</span><span class="price">12€ <small>/</small> 20€</span></div>
+          <div class="item"><span>Simulación de entrevista (45–50 min)</span><span class="price">18€ <small>/</small> 30€</span></div>
+          <div class="item"><span>Pack CV + entrevista</span><span class="price">25€ <small>/</small> 40€</span></div>
+        </div>
+      </div>
+
+      <div class="rama c2">
+        <div class="num">02</div>
+        <div>
+          <div class="rama-title">Asesoramiento laboral</div>
+          <div class="item"><span>General — nómina, contrato, convenio, permisos, jornada, vacaciones</span><span class="price">15€ <small>/</small> 25€</span></div>
+          <div class="item"><span>Específico — despidos, conflictos con la empresa</span><span class="price">22€ <small>/</small> 40€</span></div>
+        </div>
+      </div>
+
+      <div class="rama c3">
+        <div class="num">03</div>
+        <div>
+          <div class="rama-title">Procesos laborales</div>
+          <div class="item"><span>Trámites sencillos — IRPF, escritos breves</span><span class="price">8€ <small>/</small> 12€</span></div>
+          <div class="item"><span>Trámites con más carga — excedencia, preparación de negociación o conflicto</span><span class="price">15€ <small>/</small> 25€</span></div>
+        </div>
+      </div>
+
+      <div class="legend"><b>Precio social</b> / <b>precio estándar</b> — según tu situación, sin preguntas incómodas. Para empresas, presupuesto a medida.</div>
+      <div class="legend" style="margin-top:4px;">Precios sin IVA. Como autónomo, el IVA correspondiente se añade en la factura final.</div>
+    </section>
+  </div>
+
+  <div class="wrap">
+    <section class="contacto" id="contacto">
+      <div class="form-box">
+        <div class="section-title" style="padding:0 0 0 0; margin-bottom:8px;">Cuéntame tu caso</div>
+        <div class="section-sub">Rellena esto y se abrirá WhatsApp con tu mensaje ya listo para enviar. Es la primera consulta, gratis y sin compromiso.</div>
+
+        <form id="contactForm">
+          <div>
+            <label for="nombre">Tu nombre</label>
+            <input type="text" id="nombre" required>
+          </div>
+
+          <div>
+            <label for="perfil">¿Escribes como...?</label>
+            <select id="perfil">
+              <option value="Particular">Particular</option>
+              <option value="Empresa">Empresa</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="rama">¿Qué necesitas?</label>
+            <select id="rama">
+              <option>Búsqueda de empleo (CV / entrevista)</option>
+              <option>Asesoramiento laboral (nómina, contrato, despido...)</option>
+              <option>Procesos laborales (excedencia, IRPF, conflicto...)</option>
+              <option>No lo tengo claro todavía</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="mensaje">Cuéntame brevemente tu situación</label>
+            <textarea id="mensaje" placeholder="Ej: me han comunicado el despido y no sé si es correcto..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="margin-top:6px;">Enviar por WhatsApp →</button>
+          <div class="form-note">Al enviar se abrirá WhatsApp con estos datos para que confirmes y me lo mandes tú mismo/a. No se guarda ni se envía nada desde esta página.</div>
+        </form>
+      </div>
+    </section>
+  </div>
+
+  <div class="wrap">
+    <footer>
+      <div class="contact-row">
+        <div><span class="ic">✉</span>delasotaescrichetrabajo@gmail.com</div>
+        <div><span class="ic">☎</span>638 292 643</div>
+        <div><span class="ic">@</span>fernando_rrhh</div>
+        <div><span class="ic">in</span><a href="https://www.linkedin.com/in/fernando-de-la-sota-escriche-47824a161" target="_blank" rel="noopener">LinkedIn</a></div>
+      </div>
+      <div class="disclaimer">Este es un servicio de asesoramiento orientativo desde experiencia profesional en RRHH. No constituye asesoría jurídica vinculante ni sustituye a un graduado social o abogado laboralista en caso de proceso judicial.</div>
+    </footer>
+  </div>
+
+<script>
+  document.getElementById('contactForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    const nombre = document.getElementById('nombre').value.trim();
+    const perfil = document.getElementById('perfil').value;
+    const rama = document.getElementById('rama').value;
+    const mensaje = document.getElementById('mensaje').value.trim();
+
+    const texto =
+`Hola Fernando! Soy ${nombre} (${perfil}).
+Sobre: ${rama}
+Mi caso: ${mensaje}
+
+Vengo desde la web de RRHH Fácil.`;
+
+    const numero = "34638292643";
+    const url = "https://wa.me/" + numero + "?text=" + encodeURIComponent(texto);
+    window.open(url, "_blank");
+  });
+</script>
+
+</body>
+</html>
